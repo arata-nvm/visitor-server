@@ -29,6 +29,7 @@ func handle(c echo.Context) error {
 	if err != nil {
 		return err
 	}
+	c.Response().Header().Set("Cache-Control", "no-cache")
 	return c.Blob(http.StatusOK, mime.TypeByExtension(".png"), imgData)
 }
 
